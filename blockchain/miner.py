@@ -24,10 +24,60 @@ def proof_of_work(last_proof):
     start = timer()
 
     print("Searching for next proof")
-    proof = 0
+    proof = None
+    proof0 = 0
+    proof1 = 10000000
+    proof2 = 20000000
+    proof3 = 30000000
+    proof4 = 40000000
+    proof5 = 50000000
+    proof6 = 60000000
+    proof7 = 70000000
+    proof8 = 80000000
+    proof9 = 90000000
     #  TODO: Your code here
-    while valid_proof(last_proof, proof) is False:
-        proof +=1
+    while proof == None:
+        if valid_proof(last_proof, proof0):
+            print('\nproof0 found it!\n')
+            proof = proof0
+        elif valid_proof(last_proof, proof1):
+            print('\nproof1 found it!\n')
+            proof = proof1
+        elif valid_proof(last_proof, proof2):
+            print('\nproof2 found it!\n')
+            proof = proof2
+        elif valid_proof(last_proof, proof3):
+            print('\nproof3 found it!\n')
+            proof = proof3
+        elif valid_proof(last_proof, proof4):
+            print('\nproof4 found it!\n')
+            proof = proof4
+        elif valid_proof(last_proof, proof5):
+            print('\nproof5 found it!\n')
+            proof = proof5
+        elif valid_proof(last_proof, proof6):
+            print('\nproof6 found it!\n')
+            proof = proof6
+        elif valid_proof(last_proof, proof7):
+            print('\nproof7 found it!\n')
+            proof = proof7
+        elif valid_proof(last_proof, proof8):
+            print('\nproof8 found it!\n')
+            proof = proof8
+        elif valid_proof(last_proof, proof9):
+            print('\nproof9 found it!\n')
+            proof = proof9
+        else:
+            proof0 += 1
+            proof1 += 1
+            proof2 += 1
+            proof3 += 1
+            proof4 += 1
+            proof5 += 1
+            proof6 += 1
+            proof7 += 1
+            proof8 += 1
+            proof9 += 1
 
     print("Proof found: " + str(proof) + " in " + str(timer() - start))
     return proof
