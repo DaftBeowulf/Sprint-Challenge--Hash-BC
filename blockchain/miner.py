@@ -83,7 +83,7 @@ def proof_of_work(last_proof):
     return proof
 
 
-def valid_proof(last_hash, proof):
+def valid_proof(last_proof, proof):
     """
     Validates the Proof:  Multi-ouroborus:  Do the last six characters of
     the hash of the last proof match the first six characters of the hash
@@ -93,9 +93,9 @@ def valid_proof(last_hash, proof):
     """
 
     # TODO: Your code here!
-    guess = f'{last_hash}{proof}'.encode()
-    guess_hash = hashlib.sha256(guess).hexdigest()
-    return guess_hash[:6] == guess_hash[-6:]
+    last_hash = hashlib.sha256(f'{last_proof}'.encode()).hexdigest()
+    curr_hash= hashlib.sha256(f'{proof}'.encode()).hexdigest()
+    return curr_hash[:6] == last_hash[-6:]
 
 
 if __name__ == '__main__':
