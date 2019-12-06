@@ -2,6 +2,7 @@ import hashlib
 import requests
 
 import sys
+import json
 
 from uuid import uuid4
 
@@ -43,7 +44,7 @@ def valid_proof(last_hash, proof):
 
     # TODO: Your code here!
     guess = f'{last_hash}{proof}'.encode()
-    guess_hash == hashlib.sha256(guess).hexdigest()
+    guess_hash = hashlib.sha256(guess).hexdigest()
     return guess_hash[:6] == guess_hash[-6:]
 
 
