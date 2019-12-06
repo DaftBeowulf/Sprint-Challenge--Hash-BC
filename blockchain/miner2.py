@@ -23,6 +23,8 @@ def proof_of_work(last_proof):
 
     start = timer()
 
+    last_hash = hashlib.sha256(f'{last_proof}'.encode()).hexdigest()
+
     print("Searching for next proof")
     proof = None
     proof0 = 10000000
@@ -37,34 +39,34 @@ def proof_of_work(last_proof):
     proof9 = 90000001
     #  TODO: Your code here
     while proof == None:
-        if valid_proof(last_proof, proof0):
+        if valid_proof(last_hash, proof0):
             print('\nproof0 found it!\n')
             proof = proof0
-        elif valid_proof(last_proof, proof1):
+        elif valid_proof(last_hash, proof1):
             print('\nproof1 found it!\n')
             proof = proof1
-        elif valid_proof(last_proof, proof2):
+        elif valid_proof(last_hash, proof2):
             print('\nproof2 found it!\n')
             proof = proof2
-        elif valid_proof(last_proof, proof3):
+        elif valid_proof(last_hash, proof3):
             print('\nproof3 found it!\n')
             proof = proof3
-        elif valid_proof(last_proof, proof4):
+        elif valid_proof(last_hash, proof4):
             print('\nproof4 found it!\n')
             proof = proof4
-        elif valid_proof(last_proof, proof5):
+        elif valid_proof(last_hash, proof5):
             print('\nproof5 found it!\n')
             proof = proof5
-        elif valid_proof(last_proof, proof6):
+        elif valid_proof(last_hash, proof6):
             print('\nproof6 found it!\n')
             proof = proof6
-        elif valid_proof(last_proof, proof7):
+        elif valid_proof(last_hash, proof7):
             print('\nproof7 found it!\n')
             proof = proof7
-        elif valid_proof(last_proof, proof8):
+        elif valid_proof(last_hash, proof8):
             print('\nproof8 found it!\n')
             proof = proof8
-        elif valid_proof(last_proof, proof9):
+        elif valid_proof(last_hash, proof9):
             print('\nproof9 found it!\n')
             proof = proof9
         else:
@@ -83,7 +85,7 @@ def proof_of_work(last_proof):
     return proof
 
 
-def valid_proof(last_proof, proof):
+def valid_proof(last_hash, proof):
     """
     Validates the Proof:  Multi-ouroborus:  Do the last six characters of
     the hash of the last proof match the first six characters of the hash
@@ -93,7 +95,6 @@ def valid_proof(last_proof, proof):
     """
 
     # TODO: Your code here!
-    last_hash = hashlib.sha256(f'{last_proof}'.encode()).hexdigest()
     curr_hash= hashlib.sha256(f'{proof}'.encode()).hexdigest()
     return curr_hash[:6] == last_hash[-6:]
 
